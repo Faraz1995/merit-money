@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.label {
+  color: #1e4c82;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  right: 15px;
+  top: 11px;
+  padding: 0 5px;
+  background: #fff;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.input {
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 0 20px;
+  background: #fff;
+  color: #323840;
+  border: 1px solid #3D85D8;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #483b00;
+
+    ~.label {
+      top: -8px;
+      font-size: 13px;
+      color: #483b00;
+    }
+  }
+}
+
+.input:not(:placeholder-shown)~.label {
+  top: -8px;
+  font-size: 13px;
+}
