@@ -9,4 +9,6 @@ html{
 body {
   min-height: 100%;
   font-size: 14px;
+  background: rgb(167, 214, 166);
+    background: linear-gradient(90deg, rgba(167, 214, 166, 1) 0%, rgba(106, 175, 66, 1) 100%);
 }

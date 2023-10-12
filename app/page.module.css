@@ -1,0 +1,26 @@
+.container{
+  padding: 2rem;
+  direction: rtl;
+}
+.rateBox{
+  padding: 1rem;
+  border: 5px solid;
+  border-radius: 10px;
+    border-image: linear-gradient(45deg, #6aaf42, white) 1;
+}
+.row{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.textContainer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+.btnContainer{
+  display: flex;
+  max-width: 500px;
+}
