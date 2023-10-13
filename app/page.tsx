@@ -21,13 +21,15 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.rateBox}>
-        <div className={styles.row}>
+        <div className={styles.inputContainer}>
           <Select
             selectedValue={selectedPerson}
             onChange={(e) => setSelectedPerson(e.target.value)}
           >
             <option value=''>لطفا یکی رو انتخاب کن</option>
           </Select>
+        </div>
+        <div className={styles.inputContainer}>
           <TextInput
             placeholder='چند سکه'
             value={point}

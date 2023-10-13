@@ -4,9 +4,13 @@
 }
 .rateBox{
   padding: 1rem;
-  border: 5px solid;
+  border: 2px solid #4CAF50;
   border-radius: 10px;
-    border-image: linear-gradient(45deg, #6aaf42, white) 1;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+.inputContainer{
+  max-width: 25rem;
+  margin-bottom: 1rem;
 }
 .row{
   width: 70%;
@@ -22,5 +26,5 @@
 }
 .btnContainer{
   display: flex;
-  max-width: 500px;
+  max-width: 25rem;
 }
