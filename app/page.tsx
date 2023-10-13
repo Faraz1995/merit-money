@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import Button from '@/components/Button'
 import Textarea from '@/components/Textarea'
 import TextInput from '@/components/TextInput'
+import ReviewBox from '@/components/ReviewBox'
 
 export default function Home() {
   const [selectedPerson, setSelectedPerson] = useState<string>('')
@@ -21,6 +22,10 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.rateBox}>
+        <div className={styles.row}>
+          <p className={styles.title}>قدردانی کردن</p>
+          <p>سرمایه فعلی شما {point}</p>
+        </div>
         <div className={styles.inputContainer}>
           <Select
             selectedValue={selectedPerson}
@@ -44,6 +49,10 @@ export default function Home() {
             <p>قدردانی</p>
           </Button>
         </div>
+      </div>
+
+      <div>
+        <ReviewBox />
       </div>
     </div>
   )

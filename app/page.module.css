@@ -13,10 +13,14 @@
   margin-bottom: 1rem;
 }
 .row{
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+.title{
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .textContainer{
   width: 100%;
