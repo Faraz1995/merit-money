@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import TextInput from '@/components/TextInput'
 import Button from '@/components/Button'
 import styles from './login.module.scss'
+import { useSetUserContext } from '@/context/UserContext'
 
 import { loginApi } from '../../api'
 
@@ -11,6 +12,7 @@ const Page: React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const router = useRouter()
+  const setUser = useSetUserContext()
   const enterHandler = () => {
     const data = {
       username,
@@ -20,7 +22,7 @@ const Page: React.FC = () => {
       data,
       (res: any) => {
         router.push('/')
-        console.log(res)
+        setUser(res.data)
       },
       (e: any) => {
         console.log(e)
