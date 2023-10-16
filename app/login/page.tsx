@@ -4,13 +4,30 @@ import { useRouter } from 'next/navigation'
 import TextInput from '@/components/TextInput'
 import Button from '@/components/Button'
 import styles from './login.module.scss'
+import { useSetUserContext } from '@/context/UserContext'
+
+import { loginApi } from '../../api'
 
 const Page: React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const router = useRouter()
+  const setUser = useSetUserContext()
   const enterHandler = () => {
-    router.push('/')
+    const data = {
+      username,
+      password
+    }
+    loginApi(
+      data,
+      (res: any) => {
+        router.push('/')
+        setUser(res.data)
+      },
+      (e: any) => {
+        console.log(e)
+      }
+    )
   }
   return (
     <div className={styles.container}>
