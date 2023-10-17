@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { topUsersApi } from '@/api'
 import styles from './top.module.css'
 import Image from 'next/image'
-function TopUsers({ user }) {
+type UserType = {
+  username: string
+  [key: string]: any
+}
+function TopUsers({ user }: UserType) {
   const [tops, setTops] = useState<{ username: string; receivedCoins: number }[]>()
   useEffect(() => {
     if (user.username) {
@@ -11,10 +15,10 @@ function TopUsers({ user }) {
       }
       topUsersApi(
         params,
-        (res) => {
+        (res: any) => {
           setTops(res.data)
         },
-        (e) => {
+        (e: any) => {
           console.log(e)
         }
       )

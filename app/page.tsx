@@ -35,10 +35,10 @@ export default function Home() {
 
   const fetchConfig = () => {
     getConfig(
-      (res) => {
+      (res: any) => {
         setUser(res.data)
       },
-      (e) => {
+      (e: any) => {
         console.log(e)
       }
     )
@@ -77,10 +77,10 @@ export default function Home() {
     }
     getReviews(
       params,
-      (res) => {
+      (res: any) => {
         setReviews(res.data)
       },
-      (e) => {
+      (e: any) => {
         console.log(e)
       }
     )
@@ -100,13 +100,13 @@ export default function Home() {
     sendReview(
       body,
       params,
-      (res) => {
+      (res: any) => {
         fetchReviews()
         setSelectedPerson('')
         setPoint('')
         setReview('')
       },
-      (e) => {
+      (e: any) => {
         console.log(e)
       }
     )
