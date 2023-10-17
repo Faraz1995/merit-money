@@ -6,12 +6,12 @@ type UserType = {
   username: string
   [key: string]: any
 }
-function TopUsers({ user }: UserType) {
+function TopUsers({ username }: any) {
   const [tops, setTops] = useState<{ username: string; receivedCoins: number }[]>()
   useEffect(() => {
-    if (user.username) {
+    if (username) {
       const params = {
-        user: user.username
+        user: username
       }
       topUsersApi(
         params,
@@ -23,7 +23,7 @@ function TopUsers({ user }: UserType) {
         }
       )
     }
-  }, [user.username])
+  }, [username])
   return (
     <div className={styles.container}>
       <h2>نفرات برتر</h2>

@@ -115,7 +115,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.infoBar}>
-        <TopUsers user={user} />
+        <TopUsers username={user.username} />
       </div>
       <div className={styles.rateBox}>
         <div className={styles.row}>
