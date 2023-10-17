@@ -1,6 +1,9 @@
 .container{
   padding: 2rem;
   direction: rtl;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  gap: 1rem;
 }
 .rateBox{
   padding: 1rem;
@@ -31,4 +34,15 @@
 .btnContainer{
   display: flex;
   max-width: 25rem;
+}
+.reviewContainer{
+  margin-top: 2rem;
+}
+
+.coinBox {
+  display: flex;
+}
+
+.coinBox p {
+  margin-left: 0.5rem;
 }

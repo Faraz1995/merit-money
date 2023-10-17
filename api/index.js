@@ -51,3 +51,13 @@ export const sendReview = (body, params, success, error) => {
     .then(success)
     .catch(error)
 }
+
+export const topUsersApi = (params, success, error) => {
+  const url = `backEnd/${params.user}/topUsers`
+  axios({
+    method: 'get',
+    url: url
+  })
+    .then(success)
+    .catch(error)
+}

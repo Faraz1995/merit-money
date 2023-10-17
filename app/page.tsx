@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Select from '@/components/Select'
 import styles from './page.module.css'
 import Button from '@/components/Button'
@@ -9,6 +10,7 @@ import ReviewBox from '@/components/ReviewBox'
 import { useUserContext, useSetUserContext } from '@/context/UserContext'
 
 import { membersApi, getConfig, getReviews, sendReview } from '@/api'
+import TopUsers from '@/components/TopUsers'
 
 export default function Home() {
   const [selectedPerson, setSelectedPerson] = useState<string>('')
@@ -110,13 +112,18 @@ export default function Home() {
     )
     console.log('submit')
   }
-  console.log(members)
   return (
     <div className={styles.container}>
+      <div className={styles.infoBar}>
+        <TopUsers user={user} />
+      </div>
       <div className={styles.rateBox}>
         <div className={styles.row}>
           <p className={styles.title}>قدردانی کردن</p>
-          <p>سرمایه فعلی شما {user.assignedCoins}</p>
+          <div className={styles.coinBox}>
+            <p>سرمایه فعلی شما {user.assignedCoins}</p>
+            <Image src={'/coin.svg'} alt='coin' width={20} height={20} />
+          </div>
         </div>
         <div className={styles.inputContainer}>
           <Select
@@ -146,12 +153,12 @@ export default function Home() {
             <p>قدردانی</p>
           </Button>
         </div>
-      </div>
-
-      <div>
-        {reviews.map((review, index) => (
-          <ReviewBox review={review} key={index} />
-        ))}
+        <div className={styles.reviewContainer}>
+          <h2>نظرات اعطا شده</h2>
+          {reviews.map((review, index) => (
+            <ReviewBox review={review} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,17 @@
+.container{
+  padding: 1rem;
+    border: 2px solid #4CAF50;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+.topRow{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.coinBox{
+  display: flex;
+}
+.coinBox p{
+  margin-left: 0.5rem;
+}
