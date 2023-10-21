@@ -1,6 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import toast from 'react-hot-toast'
+
 import Select from '@/components/Select'
 import styles from './page.module.css'
 import Button from '@/components/Button'
@@ -40,6 +42,7 @@ export default function Home() {
       },
       (e: any) => {
         console.log(e)
+        toast('اول لاگین کن')
       }
     )
   }

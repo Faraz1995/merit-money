@@ -2,6 +2,7 @@
 import './globals.css'
 import localFont from 'next/font/local'
 import UserProvider from '../context/UserContext'
+import { Toaster } from 'react-hot-toast'
 
 const iransansFont = localFont({ src: '../public/fonts/iransans/fonts.ttf' })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }
         `}</style>
 
-        <UserProvider>{children}</UserProvider>
+        <UserProvider>
+          {children}
+          <Toaster position='bottom-center' />
+        </UserProvider>
       </body>
     </html>
   )
