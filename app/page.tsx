@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 
 import Select from '@/components/Select'
@@ -30,7 +31,7 @@ export default function Home() {
   >([])
   const user = useUserContext()
   const setUser = useSetUserContext()
-
+  const router = useRouter()
   useEffect(() => {
     fetchConfig()
   }, [])
@@ -42,7 +43,11 @@ export default function Home() {
       },
       (e: any) => {
         console.log(e)
-        toast('اول لاگین کن')
+        if (e.response.status === 403) {
+          router.push('/login')
+        }
+        console.log(e.response)
+        toast.error('اول لاگین کن')
       }
     )
   }
