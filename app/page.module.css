@@ -46,3 +46,10 @@
 .coinBox p {
   margin-left: 0.5rem;
 }
+
+@media all and (max-width: 768px) {
+  .container{
+    grid-template-columns: 1fr;
+
+  }
+}
