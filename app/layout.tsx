@@ -8,6 +8,8 @@ const iransansFont = localFont({ src: '../public/fonts/iransans/fonts.ttf' })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' className={iransansFont.className}>
+      <title>merit money</title>
+      <link rel='icon' href='/adanic.png' />
       <body>
         <style jsx global>{`
           :root {
