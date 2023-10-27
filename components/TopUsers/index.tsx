@@ -1,35 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { topUsersApi } from '@/api'
+import React from 'react'
 import styles from './top.module.css'
 import Image from 'next/image'
-type UserType = {
-  username: string
-  [key: string]: any
+import { topType } from '@/types'
+type propType = {
+  tops: topType[]
 }
-function TopUsers({ username }: any) {
-  const [tops, setTops] = useState<{ username: string; receivedCoins: number }[]>()
-  useEffect(() => {
-    if (username) {
-      const params = {
-        user: username
-      }
-      topUsersApi(
-        params,
-        (res: any) => {
-          setTops(res.data)
-        },
-        (e: any) => {
-          console.log(e)
-        }
-      )
-    }
-  }, [username])
+function TopUsers({ tops }: propType) {
   return (
     <div className={styles.container}>
       <h2>نفرات برتر</h2>
       <div>
         <ul>
-          {tops?.map((item) => (
+          {tops?.map((item: topType) => (
             <li key={item.username} className={styles.topRow}>
               <p>{item.username}</p>
               <div className={styles.coinBox}>

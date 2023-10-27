@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/:slug*',
-        destination: 'http://172.16.30.50:8080/:slug*'
+        destination: 'https://meritmoney.adanic.me/:slug*'
       }
     ]
   }
