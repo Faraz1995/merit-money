@@ -18,7 +18,7 @@ function ReviewBox(props: Props) {
     <div className={styles.container}>
       <div className={styles.header}>
         <p> قدردانی کرده از {props.review.toId}</p>
-        <p>{props.review.amount} سکه</p>
+        {/* <p>{props.review.amount} سکه</p> */}
       </div>
       <div className={styles.userBox}>
         <div className={styles.avatar}>
