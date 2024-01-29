@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { MultiSelect } from "react-multi-select-component";
 import toast from 'react-hot-toast'
 import { topUsersApi } from '@/api'
 
@@ -18,11 +19,11 @@ import TopUsers from '@/components/TopUsers'
 import { topType } from '@/types'
 
 export default function Home() {
-  const [selectedPerson, setSelectedPerson] = useState<string>('')
+  const [selectedPerson, setSelectedPerson] = useState<any[]>([])
   const [point, setPoint] = useState<string>('')
   const [review, setReview] = useState<string>('')
   const [tops, setTops] = useState<topType[]>([])
-  const [members, setMembers] = useState<{ username: string }[]>([])
+  const [members, setMembers] = useState<any[]>([])
   const [reviews, setReviews] = useState<
     {
       amount: number
@@ -62,7 +63,12 @@ export default function Home() {
         params,
         body,
         (res: any) => {
-          setMembers(res.data)
+          setMembers(res.data.map(item=>{
+            return {
+              label:item.username,
+              value:item.username
+            }
+          }))
         },
         (e: any) => {
           console.log(e)
@@ -156,7 +162,7 @@ export default function Home() {
         fetchReviews()
         fetchConfig()
         fetchTops()
-        setSelectedPerson('')
+        setSelectedPerson([])
         setPoint('')
         setReview('')
       },
@@ -166,6 +172,15 @@ export default function Home() {
       }
     )
   }
+
+  const test =(v) =>{
+    console.log(v);
+    setSelectedPerson(prev=>{
+      return [...prev,...v]
+    })
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.infoBar}>
@@ -180,17 +195,14 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.inputContainer}>
-          <Select
-            selectedValue={selectedPerson}
-            onChange={(e) => setSelectedPerson(e.target.value)}
-          >
-            <option value=''>لطفا یکی رو انتخاب کن</option>
-            {members.map((member) => (
-              <option key={member.username} value={member.username}>
-                {member.username}
-              </option>
-            ))}
-          </Select>
+        <MultiSelect
+        options={members}
+        value={selectedPerson}
+        onChange={setSelectedPerson}
+        labelledBy="select users"
+        overrideStrings={{ "selectSomeItems": "لطفا یکی رو انتخاب کن"}} // <- to override strings
+      />
+
         </div>
         <div className={styles.inputContainer}>
           <TextInput
