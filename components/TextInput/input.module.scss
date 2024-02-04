@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .label {
@@ -35,7 +36,7 @@
     border: 1px solid #483b00;
 
     ~.label {
-      top: -8px;
+      top: -20px;
       font-size: 13px;
       color: #483b00;
     }
@@ -43,6 +44,6 @@
 }
 
 .input:not(:placeholder-shown)~.label {
-  top: -8px;
+  top: -20px;
   font-size: 13px;
 }
