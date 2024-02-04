@@ -4,7 +4,7 @@ import styles from './review.module.scss'
 
 type Review = {
   fromId: string
-  toId: string
+  toId: string[]
   amount: number
   description: string
 }
@@ -17,7 +17,7 @@ function ReviewBox(props: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <p> قدردانی کرده از {props.review.toId}</p>
+        <p> قدردانی کرده از {props.review.toId.join(',')}</p>
         {/* <p>{props.review.amount} سکه</p> */}
       </div>
       <div className={styles.userBox}>

@@ -28,7 +28,7 @@ export default function Home() {
     {
       amount: number
       fromId: string
-      toId: string
+      toId: string[]
       description: string
       [key: string]: any
     }[]
@@ -63,7 +63,7 @@ export default function Home() {
         params,
         body,
         (res: any) => {
-          setMembers(res.data.map(item=>{
+          setMembers(res.data.map((item:any)=>{
             return {
               label:item.username,
               value:item.username
@@ -152,7 +152,7 @@ export default function Home() {
       transfer: {
         amount: parseInt(point),
         description: review,
-        destination: selectedPerson
+        destination: selectedPerson.map(item=>item.value)
       }
     }
     sendReview(
@@ -173,12 +173,7 @@ export default function Home() {
     )
   }
 
-  const test =(v) =>{
-    console.log(v);
-    setSelectedPerson(prev=>{
-      return [...prev,...v]
-    })
-  }
+
 
 
   return (
